@@ -1,15 +1,19 @@
 // src/components/PhotoReel.jsx
 const STOCK = [
   "../../photos/output.webp",
-  "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600",
+  "../../photos/output.webp",
+  "../../photos/output.webp",
+  "../../photos/output.webp",
+  "../../photos/output.webp",
+  "../../photos/output.webp"
 ];
 
 export default function PhotoReel({
   images = STOCK,
   speedMs = 35000,           // higher = slower
-  height = 260,              // px height of each frame
+  height = 560 ,              // px height of each frame
   width = 380,               // px width of each frame
-  overlapPx = 8,             // how much neighbors overlap (for blending)
+  overlapPx = 0.00001,             // how much neighbors overlap (for blending)
   pauseOnHover = true,
 }) {
   const laneStyle = {
@@ -62,7 +66,7 @@ function Frame({ src, height, width, overlapPx, isFirst }) {
         height: `${height}px`,
         width: `${width}px`,
         /* overlap neighbors slightly to hide seams */
-        marginLeft: isFirst ? 0 : `-${overlapPx}px`,
+        marginLeft: isFirst ? 0 : `${overlapPx}px`,
       }}
     >
       <img
