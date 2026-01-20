@@ -2,9 +2,14 @@
 
 /* infinite horizontal scroll (one full set width) */
 @keyframes reel {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
+
 
 @keyframes fade-in-bio { 
   from { opacity : 0; transform: translateY(4px); }

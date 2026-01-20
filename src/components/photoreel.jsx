@@ -1,18 +1,20 @@
 // src/components/PhotoReel.jsx
 const STOCK = [
   "../../photos/output.webp",
-  "../../photos/output.webp",
-  "../../photos/output.webp",
-  "../../photos/output.webp",
-  "../../photos/output.webp",
-  "../../photos/output.webp"
+  "../../photos/DSC04545.webp",
+  "../../photos/DSC04640.webp",
+  "../../photos/DSC04883-2.webp",
+  "../../photos/DSC05532.webp",
+  "../../photos/DSC02728-HDR.webp",
+  "../../photos/DSC03418.webp",
+  "../../photos/DSC09936.webp"
 ];
 
 export default function PhotoReel({
   images = STOCK,
-  speedMs = 35000,           // higher = slower
-  height = 560 ,              // px height of each frame
-  width = 380,               // px width of each frame
+  speedMs = 25000,           // higher = slower
+  height = 260 ,              // px height of each frame
+  width = 180,               // px width of each frame
   overlapPx = 0.00001,             // how much neighbors overlap (for blending)
   pauseOnHover = true,
 }) {
@@ -21,17 +23,16 @@ export default function PhotoReel({
   };
 
   return (
-    <section className="relative overflow-hidden py-6">
+    <section className="relative overflow-hidden py-3">
       {/* moving lane (rendered twice for seamless loop) */}
       <div
-        className={`reel-lane flex w-[200%]`}
+        className={`reel-lane flex w-[100%]`}
         style={laneStyle}
-        {...(pauseOnHover ? { className: `reel-lane flex w-[200%] group ${''}` } : {})}
+        {...(pauseOnHover ? { className: `reel-lane flex w-[100%] group ${''}` } : {})}
       >
         {/* first set */}
         <Strip images={images} height={height} width={width} overlapPx={overlapPx} />
         {/* second set (duplicate) */}
-        <Strip images={images} height={height} width={width} overlapPx={overlapPx} />
       </div>
 
       {/* edge fades so the strip blends into the page */}
